@@ -19,7 +19,8 @@
             position: relative;
             width: 100vw;
             height: 100vh;
-            background-image: url('Gemini_Generated_Image_zg2j3hzg2j3hzg2j.jpg'); /* Byt till ditt filnamn om det är annorlunda */
+            /* HÄR ÄR ÄNDRINGEN: Nu pekar den på background.jpg */
+            background-image: url('background.jpg'); 
             background-size: cover;
             background-position: center;
         }
@@ -87,6 +88,7 @@
             border: 3px solid white;
             box-shadow: 0 0 15px red;
             user-select: none;
+            z-index: 25; /* Se till att de hamnar över bilen men under startknappen */
         }
 
         /* Animation när felet dyker upp */
@@ -114,9 +116,9 @@
         
         <button id="start-btn" onclick="startGame()">Starta Spelet!</button>
 
-        <img id="mechanic" src="Gemini_Generated_Image_r0njm8r0njm8r0nj.jpg" alt="Mekaniker">
+        <img id="mechanic" src="mechanic.png" alt="Mekaniker">
         
-        </div>
+    </div>
 
     <script>
         // JAVASCRIPT - Spelets hjärna
@@ -157,10 +159,8 @@
             problem.classList.add('problem');
             problem.innerText = "🔧"; // En skiftnyckel-emoji
 
-            // Placera problemet slumpmässigt över bilen (vi gissar var bilen är på skärmen)
-            // Bilen är ungefär i mitten, lite till höger.
-            // Vi slumpar positioner mellan 40% och 80% av bredden, och 30% och 60% av höjden.
-            let x = 40 + Math.random() * 40; 
+            // Placera problemet slumpmässigt över bilen
+            let x = 30 + Math.random() * 40; 
             let y = 30 + Math.random() * 30;
             
             problem.style.left = x + '%';
